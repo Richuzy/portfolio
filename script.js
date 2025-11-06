@@ -36,7 +36,7 @@ dropdown?.querySelectorAll("a").forEach(a =>
   a.addEventListener("click", () => (dropdown.style.display = "none"))
 );
 
-
+ 
 
 // ===== Scroll to top =====
 const toTop = document.getElementById("toTop");
