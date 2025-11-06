@@ -1,0 +1,763 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@700&display=swap');
+/* Extra fonts for non-Latin scripts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=Noto+Sans+Malayalam:wght@500;700&family=Noto+Sans+Devanagari:wght@500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #e8e8ea;
+  background: #0b0b0c;
+  line-height: 1.6;
+}
+
+/* ===== Logo / Name ===== */
+.logo {
+  color: #fff;
+  font-weight: 800;       /* bolder */
+  font-size: 2rem;        /* bigger */
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform .25s ease;
+}
+.logo:hover { transform: scale(1.05); }
+.logo span {
+  color: #b74b4b;
+  text-shadow: 0 0 12px #b74b4b;
+}
+
+/* Tagline under the name */
+.tagline {
+  display: block;
+  font-size: 0.75rem;
+  color: #aaa;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #121214; }
+::-webkit-scrollbar-thumb { background: #b74b4b; border-radius: 12px; }
+
+/* Utility */
+.section { padding: 72px 20px; }
+.content { width: min(1100px, 92%); margin: 0 auto; }
+.title { display: flex; justify-content: center; margin-bottom: 40px; }
+.title span { position: relative; font: 700 30px/1 'Merriweather', serif; color: #fff; padding-bottom: 10px; }
+.title span::before,
+.title span::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; background: #b74b4b; width: 100%; }
+.title span::after { bottom: -8px; width: 70%; left: 50%; transform: translateX(-50%); }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(6px); background: rgba(11,11,12,0.65); }
+.nav-container { display: flex; align-items: center; justify-content: space-between; width: min(1100px, 92%); margin: 0 auto; padding: 14px 0; }
+.links { display: flex; gap: clamp(10px, 2vw, 28px); align-items: center; }
+.links a { color: #fff; text-decoration: none; font-weight: 500; position: relative; font-size: 1rem; }
+.links a::after { content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:#b74b4b; transition:.2s; }
+.links a:hover::after { width:100%; }
+
+/* Resume button */
+.resume-link {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #b74b4b;
+  color: #fff !important;
+  font-weight: 600;
+  transition: .25s ease;
+}
+.resume-link:hover {
+  background: #fff;
+  color: #b74b4b !important;
+  box-shadow: 0 0 12px #b74b4b;
+}
+
+.hamburg { display:none; background:none; border:none; color:#fff; font-size:1.4rem; }
+
+/* Mobile dropdown */
+.dropdown { position: fixed; inset: 0; display:none; background: rgba(0,0,0,.6); backdrop-filter: blur(3px); }
+.dropdown .links { flex-direction: column; background:#121214; width:min(480px,92%); margin: 72px auto; padding:24px; border-radius:14px; }
+.dropdown .links a { width:100%; padding:10px 0; text-align:center; }
+.cancel { align-self: center; margin-top: 6px; background:#b74b4b; border:none; color:#fff; border-radius:8px; padding:8px 14px; cursor:pointer; }
+
+/* Hero */
+.hero .main-container { display:flex; align-items:center; justify-content:center; gap: 48px; flex-wrap: wrap; min-height: 80vh; }
+.image { width: 360px; height: 360px; border-radius: 50%; margin-left: 5cm; overflow: hidden; box-shadow: 0 0 30px #b74b4b; background:#b74b4b; }
+.image img { width:100%; height:100%; object-fit: cover; }
+.image:hover { animation: pulse 1.5s ease-in-out infinite alternate; }
+@keyframes pulse { 0%{transform:scale(1); box-shadow:0 0 50px #b74b4b;} 50%{transform:scale(1.04); box-shadow:0 0 70px #b74b4b;} 100%{transform:scale(1);} }
+
+.hero .content { width: min(560px, 100%); }
+.hero h1 { font-size: clamp(1.4rem, 1.1rem + 2.5vw, 2.2rem); }
+.hero h1 span { color:#b74b4b; text-shadow:0 0 10px #b74b4b; }
+.typewriter { font-size: clamp(1.1rem, 1rem + 1.6vw, 1.8rem); font-weight:600; margin: 8px 0 10px; }
+.typewriter-text { color:#b74b4b; font-weight:700; text-shadow:0 0 10px #b74b4b; }
+.lead { color:#cfcfd4; margin-top: 6px; }
+.social-links { margin: 14px 0 18px; display:flex; gap: 14px; }
+.social-links a { display:inline-flex; width: 44px; height: 44px; border: 2px solid #b74b4b; border-radius: 50%; align-items:center; justify-content:center; color:#b74b4b; transition:.2s; }
+.social-links a:hover { transform: translateY(-2px) scale(1.05); color:#0b0b0c; background:#b74b4b; filter: drop-shadow(0 0 80px #b74b4b); }
+
+.btn { display:inline-block; text-decoration:none; font-weight:700; border-radius:10px; padding:12px 18px; transition:.2s; }
+.btn.primary { background:#b74b4b; color:#fff; }
+.btn.primary:hover { transform: translateY(-1px); box-shadow:0 8px 26px rgba(183,75,75,.35); }
+.btn.outline { color:#b74b4b; border:2px solid #b74b4b; margin-left: 10px; }
+.btn.outline:hover { background:#b74b4b; color:#0b0b0c; }
+.btn.small { padding:8px 12px; font-size:.9rem; }
+
+/* About */
+.about .about-details { display:flex; gap: 28px; align-items:center; }
+.about .left { width: 44%; display:flex; justify-content:center; }
+.about .right { width: 56%; }
+.about .topic { font-size: 1.2rem; font-weight:600; margin-bottom: 6px; }
+.bullets { margin: 12px 0 16px 16px; display:grid; gap:6px; }
+.bullets li { list-style: square; }
+.small-note { color:#bdbdc4; margin-top: 6px; }
+
+/* Default About single image */
+.about .left img { width:100%; max-width:460px; height: 400px; object-fit: cover; border-radius: 14px; }
+
+/* ===== Childhood ↔ Present Morph Photo ===== */
+.morph-photo {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  height: 400px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 30px #b74b4b;
+  background: #111;
+  isolation: isolate;
+}
+.morph-photo .photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.morph-photo .present { opacity: 1; z-index: 1; }
+.morph-photo .childhood { opacity: 0; z-index: 2; }
+
+/* Hover fade (desktop) */
+.morph-photo:hover .present { opacity: 0; transform: scale(1.03); }
+.morph-photo:hover .childhood { opacity: 1; transform: scale(1.0); }
+
+/* Toggle class for JS/mobile */
+.morph-photo.morph-on .present { opacity: 0; transform: scale(1.03); }
+.morph-photo.morph-on .childhood { opacity: 1; transform: scale(1.0); }
+
+/* Small toggle button */
+.toggle-morph {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(183, 75, 75, 0.9);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s;
+}
+.toggle-morph:hover { transform: translateY(-1px); }
+
+/* Skills */
+.skills .skill-details { display:flex; align-items:flex-start; gap: 28px; }
+.skills .text { width: 50%; }
+.experience { display:flex; align-items:center; gap: 12px; margin-top: 12px; }
+.experience .num { font-size: 2.4rem; font-weight:700; color:#fff; }
+.experience .exp { color:#c7c7cb; }
+.skills .boxes { width: 50%; display:grid; grid-template-columns: 1fr; gap: 16px; }
+.skills .box .topic { color:#b74b4b; font-weight:600; margin-bottom: 6px; }
+.bar { width:100%; height: 12px; background:#1a1a1d; border-radius: 8px; overflow:hidden; }
+.bar span { display:block; height:100%; background:#b74b4b; }
+
+/* Projects */
+.projects .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { background:#121214; border:1px solid #1e1e22; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap: 10px; }
+.card h3 { font-size: 1.1rem; }
+.card p { color:#cfcfd4; }
+.tags { display:flex; gap:8px; flex-wrap:wrap; }
+.tags span { background:#1c1c20; border:1px solid #242428; padding:2px 8px; border-radius:999px; font-size:.8rem; }
+.card-actions { display:flex; gap:8px; margin-top: 6px; }
+
+/* Services */
+.services .boxes { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.services .box { background:#121214; border:1px solid #1e1e22; border-radius:14px; padding:24px; text-align:center; transition:transform .2s; }
+.services .box:hover { transform: translateY(-4px); }
+.services .box .icon { font-size: 2.2rem; color:#b74b4b; margin-bottom: 6px; }
+.services .box .topic { font-weight:600; margin-bottom: 6px; }
+
+/* Contact */
+.contact .text { max-width: 560px; margin-inline: auto; text-align: center; }
+#contact-form { margin-top: 14px; display:grid; gap: 12px; text-align:left; }
+#contact-form label { display:grid; gap: 6px; font-weight:500; }
+#contact-form input, #contact-form textarea { width:100%; padding:12px; border-radius:8px; border:1px solid #2a2a30; background:#161618; color:#fff; }
+.form-note { font-size: .9rem; color:#bdbdc4; margin-top: 6px; }
+
+/* Footer */
+footer { background:#b74b4b; padding: 16px 0; text-align:center; }
+footer .text span, footer .text a { color:#fff; text-decoration:none; }
+
+/* Scroll to top */
+.to-top {
+  position: fixed; right: 18px; bottom: 18px; width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items:center; background:#b74b4b; color:#fff; border: 0; cursor: pointer;
+  box-shadow: 0 10px 30px rgba(183,75,75,.35); opacity:0; visibility:hidden; transition:.2s;
+}
+.to-top.show { opacity:1; visibility:visible; }
+.to-top:hover { transform: translateY(-2px); }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .about .about-details { flex-direction: column; }
+  .about .left, .about .right, .skills .text, .skills .boxes { width: 100%; }
+  .projects .grid, .services .boxes { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .image { width: 300px; height: 300px; }
+  .projects .grid, .services .boxes { grid-template-columns: 1fr; }
+  .links { display:none; }
+  .hamburg { display:block; }
+  .morph-photo { height: 340px; }
+}
+/* ================================
+   Theme Toggle (Light / Dark)
+   ================================ */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-left: 6px;
+  border: 2px solid #b74b4b;
+  background: transparent;
+  color: #b74b4b;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .2s ease;
+}
+.theme-toggle:hover {
+  background: #b74b4b;
+  color: #0b0b0c;
+  transform: translateY(-1px);
+}
+
+/* ----- Light theme overrides ----- */
+body.theme-light {
+  background: #f7f7f9;
+  color: #1d1d20;
+}
+
+/* nav */
+body.theme-light .nav {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(6px);
+}
+body.theme-light .links a {
+  color: #1d1d20;
+}
+body.theme-light .links a::after { background: #b74b4b; }
+body.theme-light .resume-link {
+  background: #b74b4b;
+  color: #fff !important;
+}
+body.theme-light .resume-link:hover {
+  background: #fff;
+  color: #b74b4b !important;
+  box-shadow: 0 0 12px rgba(183,75,75,.4);
+}
+
+/* hero + text accents */
+body.theme-light .hero h1 span,
+body.theme-light .typewriter-text { text-shadow: none; }
+body.theme-light .lead { color: #333; }
+
+/* cards/boxes */
+body.theme-light .card,
+body.theme-light .services .box {
+  background: #ffffff;
+  border-color: #e8e8ee;
+  color: #1d1d20;
+}
+body.theme-light .tags span { background:#f2f2f6; border-color:#e4e4ea; }
+
+/* about image frame / morph frame */
+body.theme-light .about .left img,
+body.theme-light .morph-photo {
+  box-shadow: 0 0 24px rgba(183,75,75,.25);
+  background: #fff;
+}
+
+/* inputs */
+body.theme-light #contact-form input,
+body.theme-light #contact-form textarea {
+  background: #fff;
+  color: #1d1d20;
+  border-color: #d9d9e0;
+}
+
+/* footer */
+body.theme-light footer { background: #b74b4b; }
+body.theme-light footer .text span,
+body.theme-light footer .text a { color:#fff; }
+
+/* to-top button */
+body.theme-light .to-top {
+  background: #b74b4b;
+  color: #fff;
+}
+
+/* icon ring links */
+body.theme-light .social-links a {
+  border-color: #b74b4b;
+  color: #b74b4b;
+}
+body.theme-light .social-links a:hover {
+  background: #b74b4b; color: #fff;
+}
+
+/* dropdown (mobile) */
+body.theme-light .dropdown { background: rgba(0,0,0,.25); }
+body.theme-light .dropdown .links { background: #ffffff; }
+body.theme-light .dropdown .links a { color: #1d1d20; }
+/* Language dropdown in the nav */
+.lang-select {
+  appearance: none;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #b74b4b;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s ease;
+}
+.lang-select:hover {
+  background: #b74b4b;
+  color: #0b0b0c;
+  transform: translateY(-1px);
+}
+
+/* Light theme override (if you added theme-light earlier) */
+body.theme-light .lang-select {
+  color: #b74b4b;
+  border-color: #b74b4b;
+}
+body.theme-light .lang-select:hover {
+  background: #b74b4b;
+  color: #fff;
+}
+/* Light theme: force all text to white */
+body.theme-light,
+body.theme-light * {
+  color: #fff !important;
+}
+
+/* Keep accent (#b74b4b) visible */
+body.theme-light .resume-link,
+body.theme-light .social-links a,
+body.theme-light .theme-toggle,
+body.theme-light .lang-select {
+  border-color: #b74b4b !important;
+  color: #fff !important;
+}
+
+/* Resume button hover */
+body.theme-light .resume-link:hover,
+body.theme-light .theme-toggle:hover,
+body.theme-light .lang-select:hover {
+  background: #b74b4b !important;
+  color: #fff !important;
+}
+
+/* Cards and boxes should still have a background */
+body.theme-light .card,
+body.theme-light .services .box,
+body.theme-light .dropdown .links {
+  background: rgba(0,0,0,0.8) !important;
+  border-color: #333 !important;
+}
+/* ================================
+   FIX: Readable Light Mode
+   ================================ */
+
+/* Base */
+body.theme-light {
+  background: #f6f7fb !important;    /* soft light background */
+  color: #1d1d20 !important;          /* dark text */
+}
+
+/* Global text colors */
+body.theme-light h1,
+body.theme-light h2,
+body.theme-light h3,
+body.theme-light h4,
+body.theme-light h5,
+body.theme-light h6,
+body.theme-light p,
+body.theme-light li,
+body.theme-light a,
+body.theme-light .lead,
+body.theme-light .topic,
+body.theme-light .title span,
+body.theme-light .bullets li,
+body.theme-light .small-note {
+  color: #1d1d20 !important;
+}
+
+/* Keep brand accent */
+body.theme-light .title span::before,
+body.theme-light .title span::after { background:#b74b4b !important; }
+body.theme-light .hero h1 span,
+body.theme-light .typewriter-text { color:#b74b4b !important; text-shadow:none !important; }
+
+/* Nav */
+body.theme-light .nav { background: rgba(255,255,255,0.8) !important; backdrop-filter: blur(6px); }
+body.theme-light .links a { color:#1d1d20 !important; }
+body.theme-light .links a::after { background:#b74b4b !important; }
+
+/* Logo */
+body.theme-light .logo { color:#1d1d20 !important; }
+body.theme-light .logo span { color:#b74b4b !important; text-shadow:none !important; }
+body.theme-light .logo span::after { background:#b74b4b !important; }
+body.theme-light .tagline { color:#5c5c66 !important; }
+
+/* Buttons */
+body.theme-light .btn.primary { background:#b74b4b !important; color:#fff !important; }
+body.theme-light .btn.primary:hover { box-shadow:0 8px 26px rgba(183,75,75,.35) !important; }
+body.theme-light .btn.outline { border-color:#b74b4b !important; color:#b74b4b !important; }
+body.theme-light .btn.outline:hover { background:#b74b4b !important; color:#fff !important; }
+
+/* Resume link & controls in nav */
+body.theme-light .resume-link,
+body.theme-light .theme-toggle,
+body.theme-light .lang-select {
+  border-color:#b74b4b !important;
+  color:#b74b4b !important;
+  background:transparent !important;
+}
+body.theme-light .resume-link:hover,
+body.theme-light .theme-toggle:hover,
+body.theme-light .lang-select:hover {
+  background:#b74b4b !important;
+  color:#fff !important;
+}
+
+/* Cards / Services boxes */
+body.theme-light .card,
+body.theme-light .services .box {
+  background:#ffffff !important;
+  border-color:#e6e6ee !important;
+  color:#1d1d20 !important;
+}
+body.theme-light .tags span { background:#f0f1f6 !important; border-color:#e6e7ee !important; }
+
+/* Social icons */
+body.theme-light .social-links a { border-color:#b74b4b !important; color:#b74b4b !important; }
+body.theme-light .social-links a:hover { background:#b74b4b !important; color:#fff !important; }
+
+/* Contact inputs */
+body.theme-light #contact-form input,
+body.theme-light #contact-form textarea {
+  background:#fff !important;
+  color:#1d1d20 !important;
+  border-color:#d8d9e0 !important;
+}
+
+/* About image frame / morph frame */
+body.theme-light .about .left img,
+body.theme-light .morph-photo {
+  background:#fff !important;
+  box-shadow:0 0 24px rgba(183,75,75,.22) !important;
+}
+
+/* Footer & to-top */
+body.theme-light footer { background:#b74b4b !important; }
+body.theme-light footer .text span,
+body.theme-light footer .text a { color:#fff !important; }
+body.theme-light .to-top { background:#b74b4b !important; color:#fff !important; }
+/* ===========================
+   Extra Light-Mode Fixes
+   =========================== */
+
+/* 10+ mini-projects text */
+body.theme-light .experience .num,
+body.theme-light .experience .exp {
+  color: #1d1d20 !important;
+}
+
+/* Project cards (make sure all text is dark) */
+body.theme-light .card h3,
+body.theme-light .card p,
+body.theme-light .card a {
+  color: #1d1d20 !important;
+}
+
+/* Skill bars: lighter track, red fill */
+body.theme-light .bar {
+  background: #e9e9ef !important;   /* track */
+}
+body.theme-light .bar span {
+  background: #b74b4b !important;   /* filled portion */
+}
+
+/* Tech tags/chips under each project */
+body.theme-light .tags span {
+  background: #f3f4f7 !important;
+  border-color: #e2e3ea !important;
+  color: #1d1d20 !important;
+  box-shadow: none !important;
+}
+
+/* Small buttons inside cards */
+body.theme-light .card .btn.small {
+  border: 2px solid #b74b4b !important;
+  color: #b74b4b !important;
+  background: transparent !important;
+}
+body.theme-light .card .btn.small:hover {
+  background: #b74b4b !important;
+  color: #fff !important;
+}
+
+/* Ensure headings like "Projects" stay dark */
+body.theme-light .title span {
+  color: #1d1d20 !important;
+}
+/* ================================
+   Theme ripple animation
+   ================================ */
+:root {
+  --splash-x: 50%;
+  --splash-y: 50%;
+  --splash-color: #0b0b0c;
+}
+.theme-splash {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: var(--splash-color);
+  clip-path: circle(0 at var(--splash-x) var(--splash-y));
+  opacity: 0;
+}
+.theme-splash.animate {
+  animation: theme-ripple 600ms ease-out forwards;
+}
+@keyframes theme-ripple {
+  0%   { clip-path: circle(0 at var(--splash-x) var(--splash-y)); opacity: 1; }
+  100% { clip-path: circle(160vmax at var(--splash-x) var(--splash-y)); opacity: 0; }
+}
+
+/* Respect reduced motion: no animation, instant switch */
+@media (prefers-reduced-motion: reduce) {
+  .theme-splash.animate { animation: none; opacity: 0; }
+}
+
+/* ================================
+   Services icons visibility
+   ================================ */
+.services .boxes .box i,
+.services .box .icon {               /* base color for icons */
+  color: #b74b4b;
+  font-size: 2.2rem;
+}
+
+/* in light mode keep them visible */
+body.theme-light .services .boxes .box i,
+body.theme-light .services .box .icon {
+  color: #b74b4b !important;
+}
+/* ================================
+   Light mode fixes: contact form
+   ================================ */
+body.theme-light #contact-form label {
+  color: #1d1d20 !important;   /* dark readable labels */
+}
+
+body.theme-light #contact-form input::placeholder,
+body.theme-light #contact-form textarea::placeholder {
+  color: #5c5c66 !important;   /* mid-gray placeholders */
+}
+body.theme-light #contact-form label {
+  color: #1d1d20 !important;
+  font-weight: 600;
+}
+/* Theme toggle icon colors */
+.theme-toggle i {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+
+}
+
+/* Dark mode (default): moon stays red */
+body:not(.theme-light) .theme-toggle i.fa-moon {
+  color: #b74b4b; /* your accent red */
+}
+
+/* Light mode: sun is yellow */
+body.theme-light .theme-toggle i.fa-sun {
+  color: #f4c542; /* golden sun color */
+}/* === VISIBILITY FIXES: theme icon + social icons === */
+
+/* Ensure the icon is centered and visible in both themes */
+.theme-toggle{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; border-radius:10px;
+}
+
+/* Default (dark mode): moon is red */
+.theme-toggle i{
+  font-size:1.25rem;
+  line-height:1;
+  color:#b74b4b !important;        /* make sure it's visible by default */
+  transition:color .25s ease;
+}
+
+/* Light mode: sun goes yellow */
+body.theme-light .theme-toggle i.fa-sun{
+  color:#f4c542 !important;        /* sun color */
+  filter: drop-shadow(0 0 1px rgba(0,0,0,.15));
+}
+
+/* If your button changes bg on hover, keep icon visible */
+.theme-toggle:hover i.fa-sun{ color:#f4c542 !important; }
+
+/* ----- Social icon circles ----- */
+.social-links a{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:50%;
+  color:#b74b4b; border:2px solid #b74b4b;   /* visible ring */
+}
+
+/* Make sure the <i> uses the same color as its parent link */
+.social-links a i{ color: currentColor !important; font-size:1.1rem; }
+
+/* Light mode: keep them red and visible */
+body.theme-light .social-links a{
+  color:#b74b4b !important;
+  border-color:#b74b4b !important;
+}
+body.theme-light .social-links a:hover{
+  background:#b74b4b !important; color:#fff !important;
+}
+/* Typewriter cursor on the logo name */
+#logoName {
+  position: relative;
+  white-space: nowrap;
+}
+#logoName::after {
+  content: "│";
+  margin-left: 3px;
+  color: #b74b4b;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Per-language font stacks */
+.font-latin { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.font-ar    { font-family: 'Noto Kufi Arabic', 'Amiri', serif; }
+.font-ml    { font-family: 'Noto Sans Malayalam', 'Poppins', sans-serif; }
+.font-hi    { font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif; }
+
+/* Make sure the logo stays bold & big regardless of font */
+.logo #logoName { font-weight: 800; font-size: 2rem; letter-spacing: 1.2px; }
+
+/* If you don’t want the whole page to flip when Arabic shows */
+.logo[dir="rtl"] { direction: rtl; }   /* only the logo text flips */
+/* Remove old underline */
+.logo span::after { content: none; }
+
+/* Add stable underline */
+.logo { position: relative; }
+#logoName::after { content: none !important; }
+/* Make About section list headings and text readable */
+.about .right ul li,
+.about .right ul li strong,
+.about .right ul li b {
+  color: #1d1d20 !important;   /* dark gray/black */
+}
+.about .right .bullets li {
+  color: #1d1d20 !important;
+}
+.about .right ul li strong {
+  color: #b74b4b !important;   /* your brand red */
+  font-weight: 600;
+}
+/* -------------------------------------------------
+   ABOUT section text visibility (both themes)
+   ------------------------------------------------- */
+
+/* Reset any accidental low opacity on emphasis */
+.about .right em,
+.about .right i {
+  opacity: 1 !important;
+}
+
+/* ---------- DARK MODE (default) ---------- */
+body:not(.theme-light) .about .right p,
+body:not(.theme-light) .about .right li,
+body:not(.theme-light) .about .right a {
+  color: #e8e8ea !important;
+}
+body:not(.theme-light) .about .right strong {
+  color: #b74b4b !important;          /* brand red for labels like “Experience:” */
+}
+body:not(.theme-light) .about .right em {
+  color: #d6d6dc !important;          /* slightly lighter than paragraph text */
+  font-style: italic;
+}
+body:not(.theme-light) .about .right a:hover {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+/* ---------- LIGHT MODE ---------- */
+body.theme-light .about .right p,
+body.theme-light .about .right li,
+body.theme-light .about .right a {
+  color: #1d1d20 !important;
+}
+body.theme-light .about .right strong {
+  color: #b74b4b !important;          /* keep labels in red */
+}
+body.theme-light .about .right em {
+  color: #3a3a44 !important;          /* readable italic in light mode */
+  font-style: italic;
+}
+body.theme-light .about .right a:hover {
+  color: #b74b4b !important;
+  text-decoration: underline;
+}
+
+/* Optional: bullets look a bit stronger */
+.about .right ul {
+  list-style: square;
+  padding-left: 1.2rem;
+}
+/* Image under the 10+ projects counter */
+.skills-extra-img {
+  display: block;
+  margin: 1.2em auto 0 auto;  /* leaves ~1 line space before image */
+  
+  /* size control */
+  width: 100%;          /* make it fill its container */
+  max-width: 400px;     /* cap so it doesn’t get too big on large screens */
+  
+  border-radius: 12px;  /* optional: rounded corners */
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+}
+/* Make the 10+ number red */
+.experience .num {
+  color: #b74b4b !important;  /* your brand red */
+}
+
+
+
+
+
