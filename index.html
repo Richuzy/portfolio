@@ -36,7 +36,7 @@
   <a role="menuitem" href="#projects">Projects</a>
   <a role="menuitem" href="#services">Services</a>
   <a role="menuitem" href="#contact">Contact</a>
-  <a class="resume-link" href="resume_.pdf" download>Resume</a>
+  <a class="resume-link" href="resume.pdf" download>Resume</a>
 
   <!-- Theme toggle button -->
   <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
@@ -201,6 +201,55 @@
     <h2 class="title" data-aos="fade-up"><span>Projects</span></h2>
 
     <div class="grid">
+      <!-- 1) Sentiment Analysis Service – FastAPI + Docker + CI + Kubernetes -->
+      <div class="card" data-aos="fade-up" data-aos-delay="0">
+        <h3>Malayalam Sentiment Analysis Service (FastAPI • Docker • CI/CD • Kubernetes)</h3>
+      <p>
+        Trained a BERT-based sentiment model for transliterated (Romanized) Malayalam text and deployed it as a
+        production-style inference API. Built a FastAPI service with health checks, containerized with Docker,
+        added automated tests + GitHub Actions CI, and deployed on Kubernetes (Minikube) with Service + Ingress.
+      </p>
+      <div class="tags">
+      <span>Python</span><span>PyTorch</span><span>Transformers</span><span>FastAPI</span>
+      <span>Docker</span><span>GitHub Actions</span><span>Kubernetes</span><span>Ingress</span>
+      </div>
+      <div class="card-actions">
+      <a class="btn small outline" href="https://github.com/Richuzy/sentiment-service" target="_blank" rel="noopener">Repo</a>
+      </div>
+    </div>
+    <!-- 2) ChestXray14 – VAE + Latent Classifier -->
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>ChestXray14: Variational Autoencoder + Latent Space Classifier</h3>
+      <p>
+      Designed and trained a convolutional Variational Autoencoder (VAE) on 1024×1024 chest X-ray images.
+      Extracted 64-dimensional latent embeddings and used them for multi-label disease classification.
+      Evaluated performance using macro F1-score across pathologies.
+      </p>
+      <div class="tags">
+      <span>Python</span><span>PyTorch</span><span>Deep Learning</span>
+      <span>Variational Autoencoder</span><span>Multi-label Classification</span>
+      <span>scikit-learn</span>
+      </div>
+      <div class="card-actions">
+      <a class="btn small outline" href="YOUR_GITHUB_LINK_HERE" target="_blank" rel="noopener">Repo</a>
+      </div>
+    </div>
+      <!-- 3) Brain Tumor Detection – Convolutional Autoencoder -->
+<div class="card" data-aos="fade-up" data-aos-delay="200">
+    <h3>Brain Tumor Detection via Convolutional Autoencoder</h3>
+    <p>
+    Built an unsupervised anomaly detection system for MRI scans using a convolutional autoencoder.
+    Trained the model to reconstruct healthy brain images and identified tumors via reconstruction error.
+    Designed the system for anomaly localization without labeled tumor masks.
+    </p>
+    <div class="tags">
+      <span>Python</span><span>PyTorch</span><span>Computer Vision</span>
+      <span>Autoencoder</span><span>Anomaly Detection</span><span>MRI</span>
+    </div>
+    <div class="card-actions">
+      <a class="btn small outline" href="YOUR_GITHUB_LINK_HERE" target="_blank" rel="noopener">Repo</a>
+    </div>
+  </div>
       <!-- 1) Sentiment Analysis – Transliterated Malayalam Reviews -->
       <div class="card" data-aos="fade-up" data-aos-delay="0">
         <h3>Sentiment Analysis of Transliterated Malayalam Movie Reviews</h3>
